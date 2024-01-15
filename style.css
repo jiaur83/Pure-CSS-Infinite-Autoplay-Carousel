@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+   padding: 0;
+   margin: 0;
+   font-family: "Poppins", sans-serif;
+}
+/* infinite-carousel - css */
+.container {
+   max-width: 1000px;
+   width: 100%;
+   margin: 100px auto;
+}
+#pause {
+   position: relative;
+}
+input {
+   margin-left: 15px;
+}
+.title{
+    margin-bottom: 50px;
+}
+
+#pause::after {
+   content: "";
+   margin: auto;
+   width: 660px;
+   height: 50px;
+   position: absolute;
+   top: -18px;
+   left: -15px;
+   z-index: -1;
+   border: 1px solid #f3b664;
+   border-radius: 7px;
+   background-color: #eee2deb9;
+}
+input:hover,
+label:hover {
+   cursor: pointer;
+}
+h1 {
+    background-image: linear-gradient(to right top, #ff6c22, #f78017, #ed9113, #e3a019, #d9ae27, #cabc36, #bac949, #aad460, #8ee180, #6eeda4, #47f7ca, #00ffef);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+#css-infinite-carousel {
+   --speed: 60s;
+   --gap: 1em;
+   --play-state: running;
+   --dir: normal;
+   --radius: 4px;
+   --pad: 0px;
+   margin-top: 35px;
+   display: flex;
+   overflow: hidden;
+   gap: var(--gap);
+   /* padding: 0 1em; */
+}
+
+#css-infinite-carousel .ticker {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-shrink: 0;
+   gap: var(--gap);
+   min-width: 100%;
+   animation: slide var(--speed) linear infinite;
+   animation-play-state: var(--play-state);
+   animation-direction: var(--dir);
+}
+
+#css-infinite-carousel .ticker img {
+   width: 200px;
+   height: 200px;
+   object-fit: cover;
+   border: 1px solid #ddd;
+   flex-shrink: 0;
+   border-radius: var(--radius);
+   padding: var(--pad);
+   transition: all 0.3s linear;
+}
+
+@keyframes slide {
+   0% {
+      transform: translateX(0);
+   }
+   100% {
+      transform: translateX(calc(-100% - 1em));
+   }
+}
+
+#radius:checked ~ #css-infinite-carousel {
+   --radius: 100%;
+   --pad: 10px;
+}
+
+#pause:checked ~ #css-infinite-carousel {
+   --play-state: paused;
+}
+
+#reverse:checked ~ #css-infinite-carousel {
+   --dir: reverse;
+}
+
+#normal:checked ~ #css-infinite-carousel {
+   --speed: 60s;
+}
+
+#slow:checked ~ #css-infinite-carousel {
+   --speed: 120s;
+}
+#medium:checked ~ #css-infinite-carousel {
+   --speed: 30s;
+}
+
+#fast:checked ~ #css-infinite-carousel {
+   --speed: 5s;
+}
